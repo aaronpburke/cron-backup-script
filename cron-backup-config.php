@@ -1,4 +1,4 @@
-<?php 
+<?php
 ###############################################################
 # Cron Backup Script
 ###############################################################
@@ -6,24 +6,23 @@
 ###############################################################
 
 // Set information specific to your site
-$db_host = "";
-$db_user = "";
+$db_host     = "";
+$db_user     = "";
 $db_password = "";
-$db_name = "";
-$url = "";
-$path = "";
-$datacenter = "";
+$db_name     = "";
+$url         = "";
+$path        = "";
+$datacenter  = "";
 
 // Set your Cloud Files API credentials
 $username = "";
-$key = ""; 
+$key      = "";
 
 // Backup Database? This checks if the database credentials are empty and if so the script will skip the database backup
 if (!empty($db_host) && !empty($db_user) && !empty($db_password) && !empty($db_name)) {
-$db_backup = "true";
-}
-else {
-$db_backup = "false";
+    $db_backup = "true";
+} else {
+    $db_backup = "false";
 }
 
 $installed_version = "";
