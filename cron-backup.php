@@ -65,9 +65,22 @@ if ($db_backup == "true") {
 }
 
 // Backup site files
+
+// Determine excluded folders
+$excludestr = "";
+if (isset($exclude)) {
+    if (is_array($exclude)) {
+        foreach ($exclude as $filter) {
+            $excludestr .= " --exclude=\"$filter\" ";
+        }
+    } else {
+        $excludestr .= " --exclude=\"$exclude\" ";
+    }
+}
+
 echo date("h:i:s") . " -- Starting files backup...\n";
 chdir("$path");
-shell_exec("zip -9pr ../../sitebackup.zip .");
+shell_exec("zip -9pr ../../sitebackup.zip $excludestr .");
 chdir("../../");
 
 if (file_exists("sitebackup.zip")) {

@@ -14,6 +14,9 @@ $url         = "";
 $path        = "";
 $datacenter  = "";
 
+// Exclude files from the file backup
+$exclude = array();
+
 // Set your Cloud Files API credentials
 $username = "";
 $key      = "";
