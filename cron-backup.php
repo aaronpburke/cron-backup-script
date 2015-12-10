@@ -70,17 +70,15 @@ if ($db_backup == "true") {
 $excludestr = "";
 if (isset($exclude)) {
     if (is_array($exclude)) {
-        foreach ($exclude as $filter) {
-            $excludestr .= " --exclude=\"$filter\" ";
-        }
+        $excludestr .= " -x " . implode(" ", $exclude);
     } else {
-        $excludestr .= " --exclude=\"$exclude\" ";
+        $excludestr .= " -x \"$exclude\" ";
     }
 }
 
 echo date("h:i:s") . " -- Starting files backup...\n";
 chdir("$path");
-shell_exec("zip -9pr ../../sitebackup.zip $excludestr .");
+shell_exec("zip -9pr ../../sitebackup.zip . $excludestr");
 chdir("../../");
 
 if (file_exists("sitebackup.zip")) {
