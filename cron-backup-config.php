@@ -14,7 +14,7 @@ $url         = "";
 $path        = "";
 $datacenter  = "";
 
-// Exclude files from the file backup
+// Exclude files & folders from the file backup -- to exclude a directory, suffix the directory name with "/\*".
 $exclude = array();
 
 // Set your Cloud Files API credentials
